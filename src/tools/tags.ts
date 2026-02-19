@@ -93,7 +93,7 @@ export function registerTagTools(
         if (tag?.get) {
           tags.push({
             id: tag.get("id") || id,
-            name: tag.get("value") || "",
+            name: tag.get("name") || tag.get("value") || "",
             color: tag.get("color") || "",
             createDate: tag.get("createDate"),
           });
@@ -161,7 +161,7 @@ export function registerTagTools(
       let tagId: string | null = null;
       for (const [id, value] of tagsMap) {
         const tag = value as Y.Map<any>;
-        if (tag?.get?.("value") === parsed.tagName) {
+        if (tag?.get?.("name") === parsed.tagName) {
           tagId = tag.get("id") || id;
           break;
         }
@@ -171,7 +171,7 @@ export function registerTagTools(
         tagId = generateId();
         const tagDef = new Y.Map();
         tagDef.set("id", tagId);
-        tagDef.set("value", parsed.tagName);
+        tagDef.set("name", parsed.tagName);
         tagDef.set("color", parsed.color || randomTagColor());
         tagDef.set("createDate", Date.now());
         tagsMap.set(tagId, tagDef);

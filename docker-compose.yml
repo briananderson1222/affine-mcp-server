@@ -1,0 +1,14 @@
+services:
+  affine-mcp-remote:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8080"
+    environment:
+      - AFFINE_BASE_URL=http://127.0.0.1:3010
+      - AFFINE_EMAIL=brian.anderson1222@gmail.com
+      - AFFINE_PASSWORD=MadisonVienna2019!
+      - PORT=8080
+    network_mode: host
+    restart: unless-stopped
