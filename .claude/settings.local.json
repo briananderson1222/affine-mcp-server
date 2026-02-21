@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git ls-tree:*)",
+      "Bash(npm run build:*)",
+      "Bash(echo:*)",
+      "Bash(ssh:*)",
+      "Bash(export:*)",
+      "Bash(node:*)",
+      "Bash(curl:*)"
+    ]
+  }
+}

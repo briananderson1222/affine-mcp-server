@@ -28,9 +28,9 @@ function yArrayToJS(arr: Y.Array<any>) {
 
 export function registerCollectionTools(server: any, gql: any, defaults: any) {
   async function getConnectionInfo() {
-    const endpoint = gql.endpoint || process.env.AFFINE_BASE_URL + "/graphql";
-    const headers = gql.headers || {};
-    const cookie = gql.cookie || headers.Cookie || "";
+    const endpoint = (gql as any).endpoint || process.env.AFFINE_BASE_URL + "/graphql";
+    const headers = (gql as any).headers || {};
+    const cookie = (gql as any).cookie || headers.Cookie || "";
     return { endpoint, cookie };
   }
 
